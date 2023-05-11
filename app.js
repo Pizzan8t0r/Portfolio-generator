@@ -16,3 +16,16 @@ console.log(sum);
 //-> testing testing, hello node!
 //-> Hellooo nurseee
 //-> 8
+
+//[
+   // '/usr/local/bin/node',
+    //'/Users/billymandy/Desktop/portfolio-generator/app.js',
+   // 'helllo nursee',
+   // 'From',
+    //'the',
+   // 'command',
+   // 'line'
+  //]
+  // everything separated into different values. 
+  // This happens because the command line interprets a space as the separator between two commands
+  // hellooo nursee is wrapped in quotes so the command line interprets it as one value

@@ -1,4 +1,6 @@
-const profileDataArgs = process.argv.slice(2, process.argv.length);
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
+const profileDataArgs = process.argv.slice(2);
 //const name = profileDataArgs[0];
 //const github = profileDataArgs[1];
 // destructuring assignment assigns elements of an array to variable names in a single expression
@@ -9,25 +11,14 @@ const [name, github] = profileDataArgs;
 // which is the substitution of text for a variable we build into the string.
 //const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
 // create multi-line input for the previous example
-const generatePage = (userName, githubName) => {
-    return `
-    <!DOCTYPE html> 
-  <html lang="en"> 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> html Portfolio thing </title>
-  </head>
+// completed a function that receives the command-line arguments and inserts them in a HTML template literal
 
-  <body>
-    <h1>${name}</h1>
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-  </body>
-  </html>
-    
-    `;
-};
+//console.log(name, github);
+//console.log(generatePage(name, github));
+fs.writeFile('./index.html', generatePage(name, github), err => {
+    // callback function block, a conditional statement checks for the err being returned
+    // by the callback function. if err exists, an error message is displayed:
+    if (err) throw err;
 
-console.log(name, github);
-console.log(generatePage(name, github));
+    console.log('Portfolio complete. Check out the index.html to see the output');
+});

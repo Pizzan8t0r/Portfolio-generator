@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 
-//const fs = require('fs');
-//const generatePage = require('./src/page-template.js');
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 //const pageHTML = generatePage(name, github);
 //const name = profileDataArgs[0];
 //const github = profileDataArgs[1];
@@ -62,8 +62,14 @@ const promptUser = () => {
         type: 'input',
         name: 'about',
         message: 'Provide some information about yourself:',
-        when: ({ confirmAbout }) => confirmAbout
-      }
+        when: ({ confirmAbout }) => {
+            if (confirmAbout) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+        }
     ]);
   };
 
@@ -163,10 +169,14 @@ return inquirer
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    console.log(portfolioData);
-    // const pageHTML = generatePage(portfolioData);
+    const pageHTML = generatePage(portfolioData);
     // fs.writeFile('./index.html', pageHTML, err => {
     //   if (err) throw new Error(err);
+
     //   console.log('Page created! Check out index.html in this directory to see it!');
     // });
   });
+
+  //Using recursion and conditional statements, 
+  // the project was called  with the project question prompt—allowing the user 
+  // to determine the number of projects to add to the portfolio webpage

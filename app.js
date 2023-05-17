@@ -79,7 +79,8 @@ console.log(`
 Add a New Project
 =================
 `);
-return inquirer.prompt([
+return inquirer
+  .prompt([
 // inquirer's prompt method can receive an array of objects in its argument, known as the question object. 
 //the function returns a running of inquire.prompt(), thus returning what it returns, which is a Promise.
 {
@@ -140,9 +141,17 @@ return inquirer.prompt([
     default: false
   }
 ])
+//.then callback
 .then(projectData => {
   portfolioData.projects.push(projectData);
+  // add a condition that will call the promptProject(portfolioData) function when confirmAddProject evaluates to true
+  // we can evaluate whether the user wishes to add another project
+  // In this condition, we're evaluating the user response to whether they wish to add more projects. 
+  // This response was captured in the answer object, projectData, in the property confirmAddProject. 
+  // If the user wishes to add more projects, then this condition will evaluate to true and call the promptProject(portfolioData) function
   if (projectData.confirmAddProject) {
+    // if portfolioData isn't included as the argument in the function call,
+    // A new projects array will be initialized, and the existing project data will be lost
     return promptProject(portfolioData);
   } else {
     return portfolioData;
@@ -152,9 +161,12 @@ return inquirer.prompt([
 };
 //the promise will resolve with a .then method
 promptUser()
-// Using Promises, we can chain the functions together using the then() method
-.then(answers => console.log(answers))
-.then(promptProject)
-.then(projectAnswers =>  {
-    console.log(projectAnswers)); 
-}
+  .then(promptProject)
+  .then(portfolioData => {
+    console.log(portfolioData);
+    // const pageHTML = generatePage(portfolioData);
+    // fs.writeFile('./index.html', pageHTML, err => {
+    //   if (err) throw new Error(err);
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });

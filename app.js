@@ -24,7 +24,8 @@ const inquirer = require('inquirer');
 
     //console.log('Portfolio complete. Check out the index.html to see the output');
 //});
-const promptUser = () => {
+const promptProject = portfolioData => {
+portfolioData.projects = [];
 console.log(`
 =================
 Add a New Project
@@ -67,5 +68,10 @@ return inquirer.prompt([
             default: false
           }
   ]);
-};//the promise will resolve with a .then method
-promptUser().then(answers => console.log(answers));
+};
+//the promise will resolve with a .then method
+promptUser()
+// Using Promises, we can chain the functions together using the then() method
+.then(answers => console.log(answers))
+.then(promptProject)
+.then(projectAnswers => console.log(projectAnswers));

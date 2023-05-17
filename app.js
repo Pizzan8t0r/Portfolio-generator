@@ -24,13 +24,15 @@ const inquirer = require('inquirer');
 
     //console.log('Portfolio complete. Check out the index.html to see the output');
 //});
-inquirer
+const promptUser = () => {
+
+return inquirer.prompt([
 // inquirer's prompt method can receive an array of objects in its argument, known as the question object. 
-   .prompt([
     {
         type: 'input',
         name: 'name',
         message: 'What is your name?'
     }
-   ])
-   .then(answers => console.log(answers));
+  ]);
+};
+promptUser().then(answers => console.log(answers));

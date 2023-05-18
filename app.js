@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 const generatePage = require('./src/page-template.js');
+const { writeFile, copyFile } = require('./utils/generate-site');
 //const pageHTML = generatePage(name, github);
 //const name = profileDataArgs[0];
 //const github = profileDataArgs[1];
@@ -169,14 +170,21 @@ return inquirer
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    const pageHTML = generatePage(portfolioData);
-    // fs.writeFile('./index.html', pageHTML, err => {
-    //   if (err) throw new Error(err);
-
-    //   console.log('Page created! Check out index.html in this directory to see it!');
-    // });
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
   });
-
   //Using recursion and conditional statements, 
   // the project was called  with the project question prompt—allowing the user 
   // to determine the number of projects to add to the portfolio webpage

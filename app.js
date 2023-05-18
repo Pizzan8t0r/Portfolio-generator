@@ -18,12 +18,12 @@ const generatePage = require('./src/page-template.js');
 //console.log(name, github);
 //console.log(generatePage(name, github));
 //fs.writeFile('./index.html', pageHTML, err => {
-    // callback function block, a conditional statement checks for the err being returned
-    // by the callback function. if err exists, an error message is displayed:
-    //if (err) throw err;
-
-    //console.log('Portfolio complete. Check out the index.html to see the output');
+// callback function block, a conditional statement checks for the err being returned
+// by the callback function. if err exists, an error message is displayed:
+// if (err) throw err;
+// console.log('Portfolio complete. Check out the index.html to see the output');
 //});
+
 const promptUser = () => {
     return inquirer.prompt([
       {

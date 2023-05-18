@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template.js');
-const { writeFile, copyFile } = require('./utils/generate-site');
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 //const pageHTML = generatePage(name, github);
 //const name = profileDataArgs[0];
 //const github = profileDataArgs[1];

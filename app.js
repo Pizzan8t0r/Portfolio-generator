@@ -1,6 +1,4 @@
 const inquirer = require('inquirer');
-
-const fs = require('fs');
 const generatePage = require('./src/page-template.js');
 const { writeFile, copyFile } = require('./utils/generate-site');
 //const pageHTML = generatePage(name, github);
@@ -75,17 +73,19 @@ const promptUser = () => {
   };
 
 const promptProject = portfolioData => {
-// If there's no 'projects' array property, create one
-// if control statement to guarantee the array is initialized only on the first pass
-// data collection system
-if (!portfolioData.projects) {
-    portfolioData.projects = [];
-  }
+
 console.log(`
 =================
 Add a New Project
 =================
 `);
+// If there's no 'projects' array property, create one
+// if control statement to guarantee the array is initialized only on the first pass
+// data collection system
+
+if (!portfolioData.projects) {
+  portfolioData.projects = [];
+}
 return inquirer
   .prompt([
 // inquirer's prompt method can receive an array of objects in its argument, known as the question object. 

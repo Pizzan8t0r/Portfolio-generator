@@ -1,12 +1,8 @@
 # Portfolio-generator 
-
 This application utilizes the node.js command line interface to programmatically take input data and uses it to create semantic HTML content. This program has functionality for creating the HTML file handled as a Promise, it creates an HTML portfolio page, without ever touching an HTML file. Instead, it uses the command line to capture user input and place it in a JavaScript function that provides the finished HTML page as output. previous projects typically involved creating an HTML file before working on any JavaScript. That way, we could use the <script> tag in the HTML file to load the JavaScript file and execute it upon opening it in the browser. With a Node.js application, we don't have to worry about that,  we only have to create a JavaScript file and use the command line to execute it.
-
 ## Brief: 
 The user of the program gets prompted a series of questions relating to the their GitHub portfolio, using inquirer, were able to ask for information in a structured and validated manner. This application uses Node.js’s modularity to keep the functionality clean and easy to read.  fs package was used to handle asynchronous JavaScript to create functionality for packaging up the portfolio’s page and style sheet, the mix of callback functions and Promises handle asynchronous functionality in the making of the portfolio. As we explore back-end development, we'll get familiar with Node.js, a runtime environment that allows us to run JavaScript on a local computer or server instead of solely in the browser. Node isn't like a regular computer application that provides you with a nice icon to select and open it. Instead, it is installed on your machine to be used anytime and anywhere. You just have to call on it from the command line using the command node.
-
 ##  Lessons learned working on this project:
-
 * Used object destructuring and learned about the rest and spread operators to help keep the data organized.
 * Broke a function into multiple pieces to make it easier to read the code for a specific section of the HTML template.
 * Leveraged HTML elements by using new array methods .filter() and .map() to take input data and return HTML data with it
@@ -37,5 +33,7 @@ The Promise returned by copyFile() then lets us know if the CSS file was copied 
 
 ## 
 Since their inception in the ES6 spec, more and more JavaScript libraries have moved away from the classic callback function approach to asynchronicity and have adopted a Promise-based approach, as it makes the code more predictable and ultimately cleaner when we execute it.
-We've created a Node.js application that asks for your input and creates an HTML page with it, although the styling and fonts aren’t that pretty, the program is neat and functional
+We've created a Node.js application that asks for your input and creates an HTML page with it, although the styling and fonts aren’t that pretty, the program is neat and functional.
+  <img width="1440" alt="Screenshot 2023-05-17 at 22 02 51" src="https://github.com/Pizzan8t0r/Portfolio-generator/assets/131811220/228f2905-306e-4f11-bf17-c70937bbfa2e">
+
 

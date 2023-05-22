@@ -29,11 +29,12 @@ The finished portfolio data object is returned as portfolioData and sent into th
 We pass pageHTML into the newly created writeFile() function, which returns a Promise. This is why we use return here, so the Promise is returned into the next .then() method.
 Upon a successful file creation, we take the writeFileResponse object provided by the writeFile() function's resolve() execution to log it, and then we return copyFile().
 The Promise returned by copyFile() then lets us know if the CSS file was copied correctly
+  
 <img width="1440" alt="Screenshot 2023-05-17 at 22 06 52" src="https://github.com/Pizzan8t0r/Portfolio-generator/assets/131811220/d5f2599f-a5b9-4e5b-94fa-74f2b9512333">
 
 ## 
 Since their inception in the ES6 spec, more and more JavaScript libraries have moved away from the classic callback function approach to asynchronicity and have adopted a Promise-based approach, as it makes the code more predictable and ultimately cleaner when we execute it.
-We've created a Node.js application that asks for your input and creates an HTML page with it, although the styling and fonts aren’t that pretty, the program is neat and functional.
+We've created a Node.js application that asks for your input and creates a HTML page with it, although the styling and fonts aren’t that pretty, the program is neat and functional.
   <img width="1440" alt="Screenshot 2023-05-17 at 22 02 51" src="https://github.com/Pizzan8t0r/Portfolio-generator/assets/131811220/228f2905-306e-4f11-bf17-c70937bbfa2e">
 ### Deployment: 
   https://pizzan8t0r.github.io/actual-html-from-portfolio/
